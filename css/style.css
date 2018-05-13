@@ -1,0 +1,59 @@
+body {
+  background-image: url("../images/background.jpg");
+}
+
+.menu {
+  background-color: black;
+  height: 120px;
+  margin: 0px;
+}
+
+.logomoto {
+  float: left;
+  padding-top: 20px;
+  height: 100px;
+}
+
+.icono-menu {
+  filter: invert(100%);
+  float: right;
+  height: 70px;
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+.box-promocion {
+  padding: 0px;
+}
+
+.promocion-moto {
+  max-width: 100%;
+  float: left;
+}
+
+.box-productos-grande {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box-texto {
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.titulo-producto {
+  color: white;
+  margin-top: 30px;
+}
+
+.moto-img {
+  width: 500px;
+  margin-left: 140px;
+}
+
+.box-producto {
+  margin-top: 50px;
+}
