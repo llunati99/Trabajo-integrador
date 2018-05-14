@@ -1,59 +1,111 @@
+                /* Principales estilos Mobile Friendly */
+
+* {
+	box-sizing: border-box;
+}
+
+/* Globales */
 body {
-  background-image: url("../images/background.jpg");
+	background-image: url("../images/background.jpg");
 }
 
-.menu {
-  background-color: black;
-  height: 120px;
-  margin: 0px;
+li {
+	list-style-type: none;
 }
 
-.logomoto {
-  float: left;
-  padding-top: 20px;
-  height: 100px;
+ul {
+	padding: 0;
+  margin: 0;
 }
 
-.icono-menu {
-  filter: invert(100%);
-  float: right;
-  height: 70px;
-  margin-top: 25px;
-  margin-right: 20px;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.box-promocion {
-  padding: 0px;
-}
-
-.promocion-moto {
+img {
   max-width: 100%;
-  float: left;
+  height: auto;
 }
 
-.box-productos-grande {
-  padding: 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+.container {
+  width: 991px;
 }
 
-.box-texto {
-  padding: 0px;
-  display: flex;
-  justify-content: center;
+/* Nav Bar */
+
+.botones {
+  display: block;
+  text-align: center;
+  padding: 3%;
+  background-color: grey;
 }
 
-.titulo-producto {
+.navbar {
+  text-align: center;
+}
+
+.banner {
+  margin-bottom: 10%;
+}
+
+.producto {
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 4%;
+}
+
+.titulo {
   color: white;
-  margin-top: 30px;
+  margin-top: 7%;
 }
 
-.moto-img {
-  width: 500px;
-  margin-left: 140px;
-}
+@media (min-width: 992px) {
+  .container {
+    width: 1200px;
+  }
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		height: 120px;
+	}
+  .botones {
+    display: inline;
+  }
+  .banner {
+    margin-top: 10px;
+		margin-bottom: 80px;
+  }
+  .botones {
+		padding: 32px;
+		padding-left: 100px;
+		padding-right: 100px;
+  }
+  .botones-g {
+    width: 1200px;
+		align-items: center;
+		display: flex;
+		justify-content: space-around;
+  }
+	.logotipo {
+		width: 100px;
+		margin-left: 20px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
 
-.box-producto {
-  margin-top: 50px;
+	.producto-g {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+
+
+	}
+	.producto {
+		width: 50%;
+	}
+
+
 }
