@@ -23,7 +23,7 @@ if ($_POST) {
 	<meta charset="utf-8">
 	<title>Registro</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body class="container">
 	<div class="header">
@@ -49,7 +49,7 @@ if ($_POST) {
 			</div>
 			<div class="datos-input">
 				Confirmar contraseña:			
-				<input class="input-confirm-contraseña" style="margin-left: 8px;" type="password" name="contrasena-confirm" value=""><br>
+				<input class="input-confirm-contraseña" type="password" name="contrasena-confirm" value=""><br>
 				<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena-confirm"]) ? $inputVacio["contrasena-confirm"]:"";?> </span>
 			</div>
 			<div>
@@ -59,7 +59,7 @@ if ($_POST) {
 			</div>
 			<div class="datos-input">
 				Confirmar email:			
-				<input class="input-confirm-email" style="margin-left: 44px;" type="email" name="email-confirm" value=""><br>
+				<input class="input-confirm-email" type="email" name="email-confirm" value=""><br>
 				<span style="color: red;" class='error'><?php echo isset($inputVacio["email-confirm"]) ? $inputVacio["email-confirm"]:"";?> </span>
 			</div>
 			<div class="datos-input">
