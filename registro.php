@@ -81,6 +81,9 @@ if ($_POST) {
 			<div>
 				<h4 class="unico-h4">¿Ya estas registrado? <a href="">Inicia sesión</a></h4>
 			</div>
+			<div>
+				<h5><a href="index.html">Volver al inicio</a></h5>
+			</div>
 		</form>
 	</div>
 </body>
