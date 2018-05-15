@@ -56,3 +56,6 @@ margin-left: 94px;
 .input-apellido {
 margin-left: 93px;
 }
+.error {
+	color: red;
+}

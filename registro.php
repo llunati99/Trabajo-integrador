@@ -1,6 +1,7 @@
 <?php
 include_once("funciones.php");
 include_once("usuarios.json");
+error_reporting(E_ALL ^ E_NOTICE);
 
 $inputVacio = [];
 
@@ -38,38 +39,38 @@ if ($_POST) {
 			</div>
 			<div class="datos-input">
 				Nombre de usuario:
-				<input class="input-usuario" type="text" name="usuario" value=""><br>
-				<span class='error'><?php echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
+				<input class="input-usuario" type="text" name="usuario" value="<?php if($_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>"><br>
+				<span style="color: red;" class='error'><?php echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
 			</div>			
 			<div class="datos-input">
 				Contraseña:			
 				<input class="input-contraseña" type="password" name="contrasena" value=""><br>
-				<span class='error'><?php echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
+				<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
 			</div>
 			<div class="datos-input">
 				Confirmar contraseña:			
 				<input class="input-confirm-contraseña" style="margin-left: 8px;" type="password" name="contrasena-confirm" value=""><br>
-				<span class='error'><?php echo isset($inputVacio["contrasena-confirm"]) ? $inputVacio["contrasena-confirm"]:"";?> </span>
+				<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena-confirm"]) ? $inputVacio["contrasena-confirm"]:"";?> </span>
 			</div>
 			<div>
 				Email:			
-				<input class="input-email" type="email" name="email" value=""><br>
-				<span class='error'><?php echo isset($inputVacio["email"]) ? $inputVacio["email"]:"";?> </span>
+				<input class="input-email" type="email" name="email" value="<?php if($_POST["email"] == $_POST["email"]) { echo($_POST["email"]); } else  { echo " "; } ?>"><br>
+				<span style="color: red;" class='error'><?php echo isset($inputVacio["email"]) ? $inputVacio["email"]:"";?> </span>
 			</div>
 			<div class="datos-input">
 				Confirmar email:			
 				<input class="input-confirm-email" style="margin-left: 44px;" type="email" name="email-confirm" value=""><br>
-				<span class='error'><?php echo isset($inputVacio["email-confirm"]) ? $inputVacio["email-confirm"]:"";?> </span>
+				<span style="color: red;" class='error'><?php echo isset($inputVacio["email-confirm"]) ? $inputVacio["email-confirm"]:"";?> </span>
 			</div>
 			<div class="datos-input">
 				Nombre:			
-				<input class="input-nombre" type="text" name="nombre" value=""><br>
-				<span class='error'><?php echo isset($inputVacio["nombre"]) ? $inputVacio["nombre"]:"";?> </span>
+				<input class="input-nombre" type="text" name="nombre" value="<?php if($_POST["nombre"] == $_POST["nombre"]) { echo($_POST["nombre"]); } else  { echo " "; } ?>"><br>
+				<span style="color: red;" class='error'><?php echo isset($inputVacio["nombre"]) ? $inputVacio["nombre"]:"";?> </span>
 			</div>
 			<div class="datos-input">
 				Apellido:			
-				<input class="input-apellido" type="text" name="apellido" value=""><br>
-				<span class='error'><?php echo isset($inputVacio["apellido"]) ? $inputVacio["apellido"]:"";?> </span>
+				<input class="input-apellido" type="text" name="apellido" value="<?php if($_POST["apellido"] == $_POST["apellido"]) { echo($_POST["apellido"]); } else  { echo " "; } ?>"><br>
+				<span style="color: red;" class='error'><?php echo isset($inputVacio["apellido"]) ? $inputVacio["apellido"]:"";?> </span>
 			</div>
 			<div class="unico-checkbox">
 				<input type="checkbox" name="terminos-y-condiciones"> He leido y acepto los <a href=""> términos y condiciones legales de Todo Motos </a><br>			

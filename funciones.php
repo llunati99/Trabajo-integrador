@@ -9,7 +9,7 @@ function validarRegistro($datos){
 		$inputVacio["contrasena"] = "Por favor ingrese su contraseña";
 	}
 		if ($datos["contrasena-confirm"] == "") {
-		$inputVacio["contrasena-confirm"] = "Por favor reingrese su email";
+		$inputVacio["contrasena-confirm"] = "Por favor reingrese su contraseña";
 	}
 		if ($datos["email"] == "") {
 		$inputVacio["email"] = "Por favor ingrese su email";
