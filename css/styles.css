@@ -34,13 +34,13 @@ header{
 
 div .login-register {
 	width: 100%;
+	text-align: right;
 	
 	
 }
-.login-register p {
+.login-register a {
 	font-size: 14px;
 	color: white;
-	text-align: right;
 	margin: 0;
 	padding: 10px;
 }
@@ -179,8 +179,85 @@ div .social{
 
 /********* COPYRIGHT *******/
 .copyright p {
-	color: white;
+	color: white;	
 }
+
+
+/********* REGISTRO *******/
+.formulario {
+	text-align: center;
+}
+.titulo-formulario {
+	border-bottom: 0px solid;
+	font-size: 45px;
+	color: white;
+	text-align: center;
+}
+.datos-input {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.texto-que-dice-gratis {
+	margin-top: 25px;
+	margin-bottom: 50px;
+}
+.h3gratis {
+	font-size: 40px;
+	text-align: center;
+}
+.unico-h4 {
+	margin-top: 35px;
+	font-size: 33px;
+	text-align: center;
+}
+.campos-relleno {
+	font-size: 32px;
+	text-align: center;
+}
+.caja-boton-enviar {
+	margin-top: 50px;
+	border-bottom: 1px solid white;
+	color: black;
+	text-align: center;
+}
+.boton-enviar {
+	margin-bottom: 35px;
+	font-size: 31px;
+}
+.unico-checkbox {
+	margin-top: 50px;
+	font-size: 32px;
+	text-align: center;
+}
+.input-usuario {
+color: black;
+}
+.input-contraseña {
+color: black;
+}
+.input-confirm-contraseña {
+color: black;
+}
+.input-email {
+color: black;
+}
+.input-confirm-email {
+color: black;
+}
+.input-nombre {
+color: black;
+}
+.input-apellido {
+color: black;
+}
+.error {
+	color: red;
+}  
+.unico-h5 {
+	font-size: 37px;
+	text-align: center;
+}           
+
 
 /********* MEDIA QUERIES *******/
 @media only screen and (max-width: 768px) {
@@ -230,24 +307,15 @@ footer .footer a {
 	width: 50%;
 	margin: 0;
 }
-/*.header {
-	border-bottom: solid 1px;
-}
-.titulo-principal {
+/********* REGISTRO *******/
+.formulario {
 	text-align: center;
-	margin-bottom: 35px;
-	margin-top: 35px;
-	color: white;
-}
-.caja-formulario {
-	margin-top: 20px;
-	text-align: center;
-	color: white;
 }
 .titulo-formulario {
 	border-bottom: 0px solid;
-	font-size: 25px;
+	font-size: 35px;
 	color: white;
+	text-align: center;
 }
 .datos-input {
 	margin-top: 15px;
@@ -257,52 +325,60 @@ footer .footer a {
 	margin-top: 10px;
 	margin-bottom: 35px;
 }
-.unico-h3 {
-	font-size: 20px;
+.h3gratis {
+	font-size: 30px;
+	text-align: center;
 }
 .unico-h4 {
 	margin-top: 20px;
+	font-size: 23px;
+	text-align: center;
+}
+.campos-relleno {
+	font-size: 22px;
+	text-align: center;
 }
 .caja-boton-enviar {
 	margin-top: 35px;
-	border-bottom: 1px solid;
+	border-bottom: 1px solid white;
 	color: black;
+	text-align: center;
 }
 .boton-enviar {
 	margin-bottom: 20px;
+	font-size: 21px;
 }
 .unico-checkbox {
 	margin-top: 35px;
+	font-size: 22px;
+	text-align: center;
 }
 .input-usuario {
-margin-left: 24px;
 color: black;
 }
 .input-contraseña {
-margin-left: 70px;
 color: black;
 }
 .input-confirm-contraseña {
-margin-left: 8px;
 color: black;
 }
 .input-email {
-margin-left: 108px;
 color: black;
 }
 .input-confirm-email {
-margin-left: 44px;
 color: black;
 }
 .input-nombre {
-margin-left: 94px;
 color: black;
 }
 .input-apellido {
-margin-left: 93px;
 color: black;
 }
 .error {
 	color: red;
-}             
+}  
+.unico-h5 {
+	font-size: 22px;
+	text-align: center;
+}                
 
