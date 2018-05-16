@@ -192,11 +192,39 @@ div .social{
 .copyright p {
 	color: white;
 }
+/********* LOGIN *******/
+#login {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 
+}
+.login {
+	
+	align-items: flex-start;
+}
+.usuario, .contrasena {
+	font-size: 24px;
+	font-weight: bold;
+	text-shadow: 1px 1px #9e8655;
 
+}
+.enviar-login {
+	margin-top: 10px;
+	height: 30px;
+}
+.logo-login {
+	margin: auto;
+}
+
+/************************************************************************/
 /********* REGISTRO *******/
 .formulario {
 	text-align: center;
+	border: 1px solid black;
+	margin: 0;
+	padding: 0;
+	background-image: url("../images/bg.png");
 }
 .titulo-formulario {
 	border-bottom: 0px solid;
@@ -205,8 +233,8 @@ div .social{
 	text-align: center;
 }
 .datos-input {
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 .texto-que-dice-gratis {
 	margin-top: 25px;
@@ -222,26 +250,34 @@ div .social{
 	text-align: center;
 }
 .campos-relleno {
+	color: #9e8655;
 	font-size: 23px;
 	text-align: center;
 }
 .caja-boton-enviar {
-	margin-top: 50px;
-	border-bottom: 1px solid white;
+	margin-top: 25px;
+	border-bottom: 1px solid black;
 	color: black;
 	text-align: center;
 }
 .boton-enviar {
 	margin-bottom: 35px;
 	font-size: 31px;
+	color: #7a6742;
+	background-image: url("../images/bg.png");
 }
 .unico-checkbox {
-	margin-top: 50px;
+	margin-top: 15px;
 	text-align: center;
 	font-size: 16px;
 }
+
+.inoco-checkbox input {
+	font-weight: bold;
+}
+
 .unico-checkbox p{
-	margin-top: 50px;
+	margin-top: 25px;
 	text-align: center;
 	font-size: 22px;
 }
@@ -251,7 +287,7 @@ div .social{
 
 }
 .unico-checkbox a:hover{
-	text-decoration: underline;
+	text-shadow: 1px 1px #9e8655;
 }
 
 .input-usuario {
@@ -259,12 +295,12 @@ color: black;
 width: 60%;
 height: 30px;
 }
-.input-contraseña {
+.input-contrasena {
 color: black;
 width: 60%;
 height: 30px;
 }
-.input-confirm-contraseña {
+.input-confirm-contrasena {
 color: black;
 width: 60%;
 height: 30px;
@@ -323,8 +359,13 @@ height: 30px;
 
 .foto-moto {
 	max-width: 100%;
+	border-radius: 25px;
+	border:2px solid #9e8655;
 }
-
+.productos-g img:hover {
+	opacity: 0.5;
+	
+}
 .caja-articulo {
 	background-color: #7a6742;
 	border-top: 1px solid black;
@@ -359,37 +400,42 @@ height: 30px;
 /* Banner */
 
 .banner-sm {
-		position: relative;
-    text-align: center;
-    color: white;
-		display: none;
-		margin-top: 40px;
-		border-top: 2px black solid;
+	position: relative;
+	text-align: center;
+	color: white;
+	display: none;
+	margin-top: 20px;
+		
 }
 
 .banner-lg {
-		position: relative;
+	position: relative;
     text-align: center;
     color: white;
-		display: block;
-		margin-top: 40px;
-		border-top: 2px black solid;
+	display: block;
+	margin-top: 20px;
+		
 
 }
 
 .banner-img {
 	width: 100%;
+	border-width:2px;  
+    border-style:double;
+    border-color: #9e8655;
+    opacity: 0.7;
 }
 
 .titulo-banner {
-		position: absolute;
+	position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-		color: black;
-		font-size: 90px;
-		width: 100%;
-		font-family: 'Righteous', cursive;
+	color: black;
+	font-size: 90px;
+	width: 100%;
+	font-family: 'Righteous', cursive;
+	text-shadow: 3px 1px #9e8655;
 }
 
 
@@ -456,8 +502,8 @@ footer .footer a {
 	text-align: center;
 }
 .datos-input {
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 .texto-que-dice-gratis {
 	margin-top: 10px;
@@ -476,6 +522,7 @@ footer .footer a {
 	font-size: 22px;
 	text-align: center;
 }
+
 .caja-boton-enviar {
 	margin-top: 35px;
 	border-bottom: 1px solid white;
@@ -494,10 +541,10 @@ footer .footer a {
 .input-usuario {
 color: black;
 }
-.input-contraseña {
+.input-contrasena {
 color: black;
 }
-.input-confirm-contraseña {
+.input-confirm-contrasena {
 color: black;
 }
 .input-email {
@@ -563,8 +610,9 @@ color: black;
     left: 50%;
     transform: translate(-50%, -50%);
 	color: black;
-	font-size: 50px;
+	font-size: 40px;
 	width: 100%;
+	text-shadow: 1px 1px #9e8655;
 
 }
 
