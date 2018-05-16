@@ -21,7 +21,6 @@
 header{
 	width: 100%;
 	margin: 0 auto;	
-	background-image: url("../images/bg.png");
 	background-color: grey;
 	/*Flex*/
 	display: flex; /*Es un elemento padre*/
@@ -31,58 +30,50 @@ header{
 	flex-wrap: wrap; /*para que si no entra un elemento se ponga debajo*/
 }
 
+
+
+div .login-register {
+	width: 100%;
+	
+	
+}
+.login-register p {
+	font-size: 14px;
+	color: white;
+	text-align: right;
+	margin: 0;
+	padding: 10px;
+}
+
 body {
 	font-family: 'Raleway', sans-serif;
 	margin: auto;
 	text-align: justify;
 
 }
-
+/********* LOGO *******/
 div .logo{
 	width: 35%;
 }
 
 div .logo img {
-	width: 50%;
+	width: 20%;
 	margin: 0;
 }
 
-div .banner {
-	width: 65%;
-}
+/********* MAIN NAV*******/
 
-.ad img{
-	align-content: center;
-	border: 2px solid #9e8655;
-	border-style: outset;
-}
-
-
-.social {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding-top: 17px;
-
-}
-
-div .social{
-	width: 35%;
-	justify-content: flex-end;
-}
-
-.social-icons img{
-	width: 35%;
-	align-self: center;
-}
+	
 
 .main {
+	width: 100%;
 	font-family: 'Neuton', serif;
 	font-size: 30px;
 	height: inherit;
 	line-height: 50px;
-	background-color: #9e8655;
+	background-image: url("../images/bg.png");
 	padding: 5px;
+	border-bottom: 3px solid #9e8655;
 
 	/*Flex*/
 	display: flex;
@@ -94,7 +85,7 @@ div .social{
 .main a{
 	text-decoration: none;
 	text-align: center;
-	color: #000;
+	color:  #9e8655;
 	white-space: nowrap;
 	transition: color 0.5s;
 	
@@ -104,7 +95,7 @@ div .social{
 	color: white;
 	
 }
-
+/********* SECTION *******/
 section {
 	display: flex;
 	flex-direction: column;
@@ -112,20 +103,19 @@ section {
 	align-content: center;
 	position: relative;
 	width: 75%;
+	margin-top: 10px;
 }
 
-aside .sky {
-	display: flex;
-	padding: 25px;
-	align-content: center;
+h1 {
+	font-weight: bold;
+	text-decoration: underline;
+	text-align: left;
 }
 
-/*aside {
-	border-left: 1px solid #9e8655;
-}*/
-
+/********* FOOTER *******/
 footer {
 	width:100%;
+	
 	border-top: 6px solid #9e8655;
 	margin-top: 20px;
 	background-image: url("../images/bg.png");
@@ -143,8 +133,7 @@ footer .footer a {
 	font-size: 30px;
 	color: #9e8655;
 	width: 200px;
-	height: 45px;
-
+	
 }
 div .logo-footer {
 	text-align: right;
@@ -155,13 +144,45 @@ div .logo-footer {
 	margin: 0;
 
 }
+/********* SOCIAL *******/
+.social {
+	display: flex;
+	align-items: center;
+	padding-top: 17px;
+
+}
+
+div .social{
+	width: 35%;
+	
+}
+
+.social a {
+	margin:0;
+
+}
+
+.social svg{
+	width: 34px;
+	height: 34px;
+	margin-left: 10px;	
+}
+.facebook, .twitter, .instagram {
+	fill: #9e8655;
+
+}
+.social a:hover {
+	fill: white;
+	
+}
 
 
+/********* COPYRIGHT *******/
 .copyright p {
 	color: white;
 }
 
-
+/********* MEDIA QUERIES *******/
 @media only screen and (max-width: 768px) {
 		
 .main {
@@ -170,17 +191,12 @@ div .logo-footer {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	text-align: center;
-	
-	
+	text-align: center;	
 }
 .main a{
 	width: 100%;
 	font-size: 30px;
 	border-bottom: 1px solid black;
-}
-div .banner {
-	display: none;
 }
 
 div .logo {
@@ -214,7 +230,7 @@ footer .footer a {
 	width: 50%;
 	margin: 0;
 }
-.header {
+/*.header {
 	border-bottom: solid 1px;
 }
 .titulo-principal {
