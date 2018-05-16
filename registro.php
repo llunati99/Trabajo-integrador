@@ -15,8 +15,6 @@ if ($_POST) {
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,22 +32,23 @@ if ($_POST) {
 				<div class="logo">
 					<img src="images/logo.png">
 				</div>
-					<a href="#">Home</a>
+					<a href="index.html">Home</a>
 					<a href="#">Catalogo</a>
 					<a href="faq.html">Preguntas Frecuentes</a>
 					
-			</nav><div class="login-register">
+			</nav>
+			<div class="login-register">
 					<a href="">Login</a>
 				</div>
 		</header>
 			<section>
 				<form class="formulario" action="" method="post">
 					<div>
-						<legend class="titulo-formulario">Registrate en Todo Motos</legend>
+						<h1 class="title">Registrate en Moto Market</h1>
 					</div>
-					<div class="texto-que-dice-gratis">	
+					<!--<div class="texto-que-dice-gratis">	
 						<h3 class="h3gratis">Es 100% gratis</h3>
-					</div>
+					</div>!-->
 					<div class="datos-input">
 						<p class="campos-relleno">Nombre de usuario:</p>
 						<input class="input-usuario" type="text" name="usuario" value="<?php if($_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>"><br>
@@ -84,17 +83,17 @@ if ($_POST) {
 						<span style="color: red;" class='error'><?php echo isset($inputVacio["apellido"]) ? $inputVacio["apellido"]:"";?> </span>
 					</div>
 					<div class="unico-checkbox">
-						<input type="checkbox" name="terminos-y-condiciones"> He leido y acepto los <a href=""> términos y condiciones legales de Todo Motos </a><br>			
+						<input type="checkbox" name="terminos-y-condiciones"> He leido y acepto los <a href=""> términos y condiciones legales de Moto Market </a><br>			
 					</div>
 					<div class="caja-boton-enviar">	
 						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Registrarse">
 					</div>
 					<div>
-						<h4 class="unico-h4">¿Ya estas registrado? <a href="">Inicia sesión</a></h4>
+						<p class="unico-checkbox">¿Ya estas registrado? <a href="">Inicia sesión</a></p>
 					</div>
-					<div>
+					<!--<div>
 						<h5 class="unico-h5"><a href="index.html">Volver al inicio</a></h5>
-					</div>
+					</div>!-->
 				</form>
 			</section>	
 		

@@ -30,17 +30,28 @@ header{
 	flex-wrap: wrap; /*para que si no entra un elemento se ponga debajo*/
 }
 
-
-
 div .login-register {
 	width: 100%;
 	text-align: right;
-
+	height: inherit;
+	
 
 }
+
 .login-register a {
 	font-size: 14px;
-	color: white;
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0;
+	padding: 10px;
+}
+
+.login-register a:hover {
+	text-shadow: 1px 1px #9e8655;
+	color: black;
+	font-weight: bold;
+	
 	margin: 0;
 	padding: 10px;
 }
@@ -92,7 +103,7 @@ div .logo img {
 
 }
 .main a:hover {
-	color: white;
+	color: #7a6742;
 
 }
 /********* SECTION *******/
@@ -172,7 +183,7 @@ div .social{
 
 }
 .social a:hover {
-	fill: white;
+	fill: #7a6742;
 
 }
 
@@ -211,7 +222,7 @@ div .social{
 	text-align: center;
 }
 .campos-relleno {
-	font-size: 32px;
+	font-size: 23px;
 	text-align: center;
 }
 .caja-boton-enviar {
@@ -226,29 +237,57 @@ div .social{
 }
 .unico-checkbox {
 	margin-top: 50px;
-	font-size: 32px;
 	text-align: center;
+	font-size: 16px;
 }
+.unico-checkbox p{
+	margin-top: 50px;
+	text-align: center;
+	font-size: 22px;
+}
+.unico-checkbox a{
+	text-decoration: none;
+	color: black;
+
+}
+.unico-checkbox a:hover{
+	text-decoration: underline;
+}
+
 .input-usuario {
 color: black;
+width: 60%;
+height: 30px;
 }
 .input-contraseña {
 color: black;
+width: 60%;
+height: 30px;
 }
 .input-confirm-contraseña {
 color: black;
+width: 60%;
+height: 30px;
 }
 .input-email {
 color: black;
+width: 60%;
+height: 30px;
 }
 .input-confirm-email {
 color: black;
+width: 60%;
+height: 30px;
 }
 .input-nombre {
 color: black;
+width: 60%;
+height: 30px;
 }
 .input-apellido {
 color: black;
+width: 60%;
+height: 30px;
 }
 .error {
 	color: red;
@@ -287,26 +326,34 @@ color: black;
 }
 
 .caja-articulo {
-	background-image: url("../images/bg.png");
-	color: white;
-	border-top: 1px solid red;
+	background-color: #7a6742;
+	border-top: 1px solid black;
 	font-size: 10px;
 	display: flex;
 	justify-content: space-between;
 }
 
+
 .texto-articulo {
 	margin-left: 60px;
+	text-shadow: 2px 2px #9e8655;
+	font-family: 'Play', sans-serif;
 }
 
 .links {
 		text-decoration: none;
+		color: black;
 }
-
+.texto-articulo a:hover {
+		text-decoration: none;
+		color: black;
+		text-shadow: 1px 1px #9e8655;
+}
 
 .flecha {
 	width: 30%;
-	filter: invert(100%);
+
+	
 }
 
 /* Banner */
@@ -342,6 +389,7 @@ color: black;
 		color: black;
 		font-size: 90px;
 		width: 100%;
+		font-family: 'Righteous', cursive;
 }
 
 
@@ -364,7 +412,7 @@ color: black;
 }
 
 div .logo {
-	width: 40%;
+	width: 100%;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -393,6 +441,9 @@ footer .footer a {
 .logo-footer img {
 	width: 50%;
 	margin: 0;
+}
+.unico-checkbox a:hover{
+	text-decoration: underline;
 }
 /********* REGISTRO *******/
 .formulario {
@@ -507,13 +558,14 @@ color: black;
 }
 
 .titulo-banner {
-		position: absolute;
+	position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-		color: black;
-		font-size: 50px;
-		width: 100%;
+	color: black;
+	font-size: 50px;
+	width: 100%;
+
 }
 
 .banner-lg {
