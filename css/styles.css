@@ -15,12 +15,12 @@
 	justify-content: center;
 	align-content: center;
 	background-image: url("../images/bgbody.png");
-	
+
 }
 
 header{
 	width: 100%;
-	margin: 0 auto;	
+	margin: 0 auto;
 	background-color: grey;
 	/*Flex*/
 	display: flex; /*Es un elemento padre*/
@@ -35,8 +35,8 @@ header{
 div .login-register {
 	width: 100%;
 	text-align: right;
-	
-	
+
+
 }
 .login-register a {
 	font-size: 14px;
@@ -63,7 +63,7 @@ div .logo img {
 
 /********* MAIN NAV*******/
 
-	
+
 
 .main {
 	width: 100%;
@@ -88,12 +88,12 @@ div .logo img {
 	color:  #9e8655;
 	white-space: nowrap;
 	transition: color 0.5s;
-	
-	
+
+
 }
 .main a:hover {
 	color: white;
-	
+
 }
 /********* SECTION *******/
 section {
@@ -115,7 +115,7 @@ h1 {
 /********* FOOTER *******/
 footer {
 	width:100%;
-	
+
 	border-top: 6px solid #9e8655;
 	margin-top: 20px;
 	background-image: url("../images/bg.png");
@@ -133,7 +133,7 @@ footer .footer a {
 	font-size: 30px;
 	color: #9e8655;
 	width: 200px;
-	
+
 }
 div .logo-footer {
 	text-align: right;
@@ -154,7 +154,7 @@ div .logo-footer {
 
 div .social{
 	width: 35%;
-	
+
 }
 
 .social a {
@@ -165,7 +165,7 @@ div .social{
 .social svg{
 	width: 34px;
 	height: 34px;
-	margin-left: 10px;	
+	margin-left: 10px;
 }
 .facebook, .twitter, .instagram {
 	fill: #9e8655;
@@ -173,13 +173,13 @@ div .social{
 }
 .social a:hover {
 	fill: white;
-	
+
 }
 
 
 /********* COPYRIGHT *******/
 .copyright p {
-	color: white;	
+	color: white;
 }
 
 
@@ -252,23 +252,110 @@ color: black;
 }
 .error {
 	color: red;
-}  
+}
 .unico-h5 {
 	font-size: 37px;
 	text-align: center;
-}           
+}
+
+/************** Productos *****************/
+.productos-total {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.productos-g {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 47%;
+	margin-top: 40px;
+}
+
+.productos-g-ult {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 45%;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.foto-moto {
+	max-width: 100%;
+}
+
+.caja-articulo {
+	background-image: url("../images/bg.png");
+	color: white;
+	border-top: 1px solid red;
+	font-size: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.texto-articulo {
+	margin-left: 60px;
+}
+
+.links {
+		text-decoration: none;
+}
+
+
+.flecha {
+	width: 30%;
+	filter: invert(100%);
+}
+
+/* Banner */
+
+.banner-sm {
+		position: relative;
+    text-align: center;
+    color: white;
+		display: none;
+		margin-top: 40px;
+		border-top: 2px black solid;
+}
+
+.banner-lg {
+		position: relative;
+    text-align: center;
+    color: white;
+		display: block;
+		margin-top: 40px;
+		border-top: 2px black solid;
+
+}
+
+.banner-img {
+	width: 100%;
+}
+
+.titulo-banner {
+		position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+		color: black;
+		font-size: 90px;
+		width: 100%;
+}
+
 
 
 /********* MEDIA QUERIES *******/
 @media only screen and (max-width: 768px) {
-		
+
 .main {
 	font-family: 'Neuton', serif;
 	background-color: #9e8655;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	text-align: center;	
+	text-align: center;
 }
 .main a{
 	width: 100%;
@@ -376,9 +463,64 @@ color: black;
 }
 .error {
 	color: red;
-}  
+}
 .unico-h5 {
 	font-size: 22px;
 	text-align: center;
-}                
+}
 
+/* Productos */
+
+.productos-total {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+}
+
+.productos-g {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 97%;
+	margin-top: 40px;
+}
+
+.productos-g-ult {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+/* Banner */
+
+.banner-sm {
+		position: relative;
+    text-align: center;
+    color: white;
+		display: block;
+}
+.banner-img {
+	width: 100%;
+}
+
+.titulo-banner {
+		position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+		color: black;
+		font-size: 50px;
+		width: 100%;
+}
+
+.banner-lg {
+		position: relative;
+    text-align: center;
+    color: white;
+		display: none;
+}
+
+}
