@@ -9,61 +9,56 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
 </head>
 <body>
-	<div class="container">		
-		<header class="header-container">			
+	<div class="container">
+		<header class="header-container">
 			<nav class="main">
 				<div class="logo">
 					<img src="images/logo.png">
 				</div>
 					<a href="index.html">Home</a>
 					<a href="#">Catalogo</a>
-					<a href="#">Preguntas Frecuentes</a>
-					
-			</nav><div class="login-register">
-					<a href="login.html">Iniciar Sesión</a>  <a href="registro.html">Registrarse</a>
+					<a href="faq.html">Preguntas Frecuentes</a>
+
+			</nav>
+			<div class="login-register">
+					<a href="registro.html">Register</a>
 				</div>
 		</header>
-		<section>
-			<h1 class="title">Preguntas Frecuentes:</h1>
-			<article>
-				<h3>¿Cómo puedo comprar una moto?</h3>
-				Puede realizar la operacion a través de nuestro sitio web www.motomarket.com con tarjeta de credito o  via transferencia bancaria. Si desea pagar en efectivo puede acercarse a cualquiera de nuestras sucursales (www.motomarket.com/sucursales)
-			</article>
-			<article>
-				<h3>¿Puedo personalizar mi moto?</h3>
-				Por supuesto. A través de la página de Moto Market podrá elegir la marca y modelo de la moto que usted desee, personalizar el color y agregar accesorios si así lo quisiera.
-				Contamos con una amplia gamma de adicionales para darle personalidad a su vehículo, cualquiera sea su gama. Desde pintura personalizada hasta accesorios distintivos.
-				No dude en consultar con nuestro personal especializado a traves del chat de la página.
-			</article>
-			<article>
-				<h3>¿Cómo retiro mi moto?</h3>
-				Una vez aprobada la transaccion un representante de Moto Market se comunicará con usted para coordinar la entrega. Si abona con tarjeta de credito, espere la confirmacion dentro de las 24 horas hábiles siguientes a la fecha de compra. Si realiza una transferencia, una vez confirmada nos comunicaremos con usted. El plazo estandar de acreditación de una transferencia bancaria es de 48 a 72 horas hábiles dependiendo de la entidad bancaria.
-			</article>
-			<article>
-				<h3>¿Hacen envíos a todo el país?</h3>
-				En Moto Market estamos comprometidos a que todos los que así lo deseen en Argentina puedan tener su moto. Contamos con un servicio de entrega a domicilio de alcance nacional. Los costos varían de acuerdo a la región:
-						<ul>
-							<li>NEA (Chaco, Corrientes, Misiones, Formosa): $1500</li>
-							<li>NOA (Jujuy, Salta, Tucumán, Catamarca, La Rioja y Santiago del Estero): $1000</li>
-							<li>Centro (San Juan, San Luis, Mendoza, Santa Fe, Entre Rios y La Pampa): $1200</li>
-							<li>AMBA (CABA y Buenos Aires): $1000</li>
-							<li>Patagonia 1 (Neuquen, Río Negro y Chubut): $1500</li>
-							<li>Patagonia 2: (Santa Cruz y Tierra del Fuego): $2000</li>
-						</ul>
-			</article>
-			<article>
-				<h3>¿Las compras tienen garantía?</h3>
-				Todas las compras realizadas a través de nuestra web o en las sucursales tienen -además de la garantía del fabricante- un período de garantía de Moto Market de un año que cubre daños durante el traslado (en caso de envíos) y garantía por defectos de fábrica (solo aplicable en los casos en que no esté disponible la garantía del fabricante).
-			</article>
+			<section>
+				<div>
+					<h1 class="title">Ingresa a tu cuenta</h1>
+				</div>				
+				<form class="formulario" action="" method="post">
+					<!--<div class="texto-que-dice-gratis">
+						<h3 class="h3gratis">Es 100% gratis</h3>
+					</div>!-->
+					<div class="datos-input">
+						<p class="campos-relleno">Nombre de usuario:</p>
+						<input class="input-usuario" type="text" name="usuario" value='<?php //if(!empty($_POST) && $_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>'><br>
+						<span style="color: red;" class='error'><?php //echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
+					</div>
+					<div class="datos-input">
+						<p class="campos-relleno">Contraseña:</p>
+						<input class="input-contrasena" type="password" name="contrasena" value=""><br>
+						<span style="color: red;" class='error'><?php //echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
+					</div>
 
-			<article>
-				<h3>¿Cómo es su política de cambios y devoluciones?</h3>
-				Una vez que la moto salió del depósito no se aceptan cambios ni devoluciones tanto del valor del vehículo como del envío.
-				El retraso en la entrega puede ser susceptible de reclamo, dependiendo de la causa. Si la demora es por cuestiones climáticas extremas, o ajenas a la empresa (protestas, cortes de ruta, etc.) Moto Market no considera que la demora sea su responsabilidad.
-			</article>
-		</section>	
-		
-	
+					<div class="unico-checkbox">
+						<input type="checkbox" name="terminos-y-condiciones">Recordar mi cuenta
+					</div>
+					<div class="caja-boton-enviar">
+						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Ingresar">
+					</div>
+					<div>
+						<p class="unico-checkbox" style="color: white;">¿No tienes cuenta? <a href="registro.html" style="color: white;">Creá tu cuenta ahora</a></p>
+					</div>
+					<!--<div>
+						<h5 class="unico-h5"><a href="index.html">Volver al inicio</a></h5>
+					</div>!-->
+				</form>
+			</section>
+
+
 	<footer>
 		<div class="social">
 						<a href="http://www.facebook.com" class="facebook" target="">
@@ -132,7 +127,7 @@
 		</div>
 	</footer>
 	<div class="copyright">
-		<p>	&copy; MotoMarket. Todos los derechos reservados </p>
+		<p>	&copy; Motomarket. Todos los derechos reservados </p>
 	</div>
 	</div>
 </body>

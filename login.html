@@ -21,7 +21,7 @@
 
 			</nav>
 			<div class="login-register">
-					<a href="registro.php">Register</a>
+					<a href="registro.html">Register</a>
 				</div>
 		</header>
 			<section>
@@ -34,13 +34,13 @@
 					</div>!-->
 					<div class="datos-input">
 						<p class="campos-relleno">Nombre de usuario:</p>
-						<input class="input-usuario" type="text" name="usuario" value='<?php if(!empty($_POST) && $_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>'><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
+						<input class="input-usuario" type="text" name="usuario" value=''><br>
+						<span style="color: red;" class='error'></span>
 					</div>
 					<div class="datos-input">
 						<p class="campos-relleno">Contraseña:</p>
 						<input class="input-contrasena" type="password" name="contrasena" value=""><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
+						<span style="color: red;" class='error'></span>
 					</div>
 
 					<div class="unico-checkbox">
@@ -50,7 +50,7 @@
 						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Ingresar">
 					</div>
 					<div>
-						<p class="unico-checkbox" style="color: white;">¿No tienes cuenta? <a href="registro.php" style="color: white;">Creá tu cuenta ahora</a></p>
+						<p class="unico-checkbox" style="color: white;">¿No tienes cuenta? <a href="registro.html" style="color: white;">Creá tu cuenta ahora</a></p>
 					</div>
 					<!--<div>
 						<h5 class="unico-h5"><a href="index.html">Volver al inicio</a></h5>
