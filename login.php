@@ -21,14 +21,14 @@
 
 			</nav>
 			<div class="login-register">
-					<a href="">Register</a>
+					<a href="registro.php">Register</a>
 				</div>
 		</header>
 			<section>
+				<div>
+					<h1 class="title">Ingresa a tu cuenta</h1>
+				</div>				
 				<form class="formulario" action="" method="post">
-					<div>
-						<h1 class="title" style="text-align: center">Ingresa a tu cuenta</h1>
-					</div>
 					<!--<div class="texto-que-dice-gratis">
 						<h3 class="h3gratis">Es 100% gratis</h3>
 					</div>!-->
@@ -39,18 +39,18 @@
 					</div>
 					<div class="datos-input">
 						<p class="campos-relleno">Contraseña:</p>
-						<input class="input-contraseña" type="password" name="contrasena" value=""><br>
+						<input class="input-contrasena" type="password" name="contrasena" value=""><br>
 						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
 					</div>
 
 					<div class="unico-checkbox">
-						<input type="checkbox" name="terminos-y-condiciones"> Recordar mi cuenta<br>
+						<input type="checkbox" name="terminos-y-condiciones">Recordar mi cuenta
 					</div>
 					<div class="caja-boton-enviar">
 						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Ingresar">
 					</div>
 					<div>
-						<p class="unico-checkbox">¿No tienes cuenta? <a href="">Creá tu cuenta ahora</a></p>
+						<p class="unico-checkbox" style="color: white;">¿No tienes cuenta? <a href="registro.php" style="color: white;">Creá tu cuenta ahora</a></p>
 					</div>
 					<!--<div>
 						<h5 class="unico-h5"><a href="index.html">Volver al inicio</a></h5>

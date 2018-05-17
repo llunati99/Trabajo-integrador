@@ -94,7 +94,7 @@ if ($_POST) {
 						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Registrarse">
 					</div>
 					<div>
-						<p class="unico-checkbox">¿Ya estas registrado? <a href="">Inicia sesión</a></p>
+						<p class="unico-checkbox">¿Ya estas registrado? <a href="login.php">Inicia sesión</a></p>
 					</div>
 					<!--<div>
 						<h5 class="unico-h5"><a href="index.html">Volver al inicio</a></h5>
