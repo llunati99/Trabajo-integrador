@@ -1,16 +1,16 @@
 
 <?php
-////include_once("funciones.php");
-//include_once("usuarios.json");
-//error_reporting(E_ALL ^ E_NOTICE);
+include_once("funciones.php");
+include_once("usuarios.json");
+error_reporting(E_ALL ^ E_NOTICE);
 
-//if ($_POST) {
-//	$inputVacio = validarRegistro($_POST);
-//	if (empty($inputVacio)) {
-//		$nuevoUsuario = crearUsuario($_POST);
-//		guardarUsuario($nuevoUsuario);
-//	}
-//}
+if ($_POST) {
+	$inputVacio = validarRegistro($_POST);
+	if (empty($inputVacio)) {
+		$nuevoUsuario = crearUsuario($_POST);
+		guardarUsuario($nuevoUsuario);
+	}
+}
 
 ?>
 
@@ -51,48 +51,46 @@
 				<form class="formulario" action="" method="post">
 					<div class="datos-input">
 						<p class="campos-relleno">Nombre:</p>			
-						<input class="input-nombre" type="text" name="nombre" value="<?php //if($_POST["nombre"] == $_POST["nombre"]) { echo($_POST["nombre"]); } else  { echo " "; } ?>"><br>
-						<span style="color: red;" class='error'><?php //echo isset($inputVacio["nombre"]) ? $inputVacio["nombre"]:"";?> </span>
+						<input class="input-nombre" type="text" name="nombre" value="<?php if($_POST["nombre"] == $_POST["nombre"]) { echo($_POST["nombre"]); } else  { echo " "; } ?>"><br>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["nombre"]) ? $inputVacio["nombre"]:"";?> </span>
 					</div>
 					<div class="datos-input">
 						<p class="campos-relleno">Apellido:</p>			
-						<input class="input-apellido" type="text" name="apellido" value="<?php //if($_POST["apellido"] == $_POST["apellido"]) { echo($_POST["apellido"]); } else  { echo " "; } ?>"><br>
-						<span style="color: red;" class='error'><?php //echo isset($inputVacio["apellido"]) ? $inputVacio["apellido"]:"";?> </span>
+						<input class="input-apellido" type="text" name="apellido" value="<?php if($_POST["apellido"] == $_POST["apellido"]) { echo($_POST["apellido"]); } else  { echo " "; } ?>"><br>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["apellido"]) ? $inputVacio["apellido"]:"";?> </span>
 					</div>
 					<div>
 						<p class="campos-relleno">Email:</p>			
-						<input class="input-email" type="email" name="email" value="<?php //if($_POST["email"] == $_POST["email"]) { echo($_POST["email"]); } else  { echo " "; } ?>"><br>							<span style="color: red;" class='error'><?php //echo isset($inputVacio["email"]) ? $inputVacio["email"]:"";?> </span>
+						<input class="input-email" type="email" name="email" value="<?php if($_POST["email"] == $_POST["email"]) { echo($_POST["email"]); } else  { echo " "; } ?>"><br>							<span style="color: red;" class='error'><?php echo isset($inputVacio["email"]) ? $inputVacio["email"]:"";?> </span>
 					</div>
 					<div class="datos-input">
 						<p class="campos-relleno">Confirmar email:</p>			
 						<input class="input-confirm-email" type="email" name="email-confirm" value=""><br>
-						<span style="color: red;" class='error'><?php //echo isset($inputVacio["email-confirm"]) ? $inputVacio["email-confirm"]:"";?> </span>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["email-confirm"]) ? $inputVacio["email-confirm"]:"";?> </span>
 					</div>		
 					<div class="datos-input">
 						<p class="campos-relleno">Usuario:</p>
-						<input class="input-usuario" type="text" name="usuario" value="<?php //if($_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>"><br>
-						<span style="color: red;" class='error'><?php //echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
+						<input class="input-usuario" type="text" name="usuario" value="<?php if($_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>"><br>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
 					</div>			
 					<div class="datos-input">
 						<p class="campos-relleno">Contraseña:</p>			
 						<input class="input-contrasena" type="password" name="contrasena" value=""><br>
-						<span style="color: red;" class='error'><?php //echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
 					</div>
 					<div class="datos-input">
 						<p class="campos-relleno">Confirmar contraseña:</p>			
 						<input class="input-confirm-contrasena" type="password" name="contrasena-confirm" value=""><br>
-						<span style="color: red;" class='error'><?php //echo isset($inputVacio["contrasena-confirm"]) ? $inputVacio["contrasena-confirm"]:"";?> </span>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena-confirm"]) ? $inputVacio["contrasena-confirm"]:"";?> </span>
 					</div>
-									
-
-					</form>
 					<div class="unico-checkbox">
-						<input type="checkbox" name="terminos-y-condiciones"> He leido y acepto los <a href=""> términos y condiciones legales de MotoMarket </a><br>			
-					</div>
+						<input type="checkbox" name="terminos-y-condiciones" required=""> He leido y acepto los <a href=""> términos y condiciones legales de MotoMarket </a><br>			
+					</div>									
 					<div class="caja-boton-enviar">	
 						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Registrarse">
 					</div>
 					<div>
+					</form>
 						<p class="unico-checkbox">¿Ya estas registrado? <a href="login.html">Inicia sesión</a></p>
 					</div>
 					<!--<div>
