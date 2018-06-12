@@ -1,7 +1,6 @@
 
 <?php
 include_once("funciones.php");
-include_once("usuarios.json");
 error_reporting(E_ALL ^ E_NOTICE);
 
 if ($_POST) {
@@ -25,8 +24,8 @@ if ($_POST) {
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
 </head>
 <body>
-	<div class="container">		
-		<header class="header-container">			
+	<div class="container">
+		<header class="header-container">
 			<nav class="main">
 				<div class="logo">
 					<img src="images/logo.png">
@@ -34,59 +33,59 @@ if ($_POST) {
 					<a href="index.html">Home</a>
 					<a href="#">Catalogo</a>
 					<a href="faq.html">Preguntas Frecuentes</a>
-					
+
 			</nav>
 			<div class="login-register">
 					<a href="login.html">Iniciar Sesión</a>
 				</div>
 		</header>
 			<section>
-				
+
 			<div>
 				<h1 class="title">Registrate en MotoMarket</h1>
 			</div>
-					<!--<div class="texto-que-dice-gratis">	
+					<!--<div class="texto-que-dice-gratis">
 						<h3 class="h3gratis">Es 100% gratis</h3>
 					</div>!-->
 				<form class="formulario" action="" method="post">
 					<div class="datos-input">
-						<p class="campos-relleno">Nombre:</p>			
+						<p class="campos-relleno">Nombre:</p>
 						<input class="input-nombre" type="text" name="nombre" value="<?php if($_POST["nombre"] == $_POST["nombre"]) { echo($_POST["nombre"]); } else  { echo " "; } ?>"><br>
 						<span style="color: red;" class='error'><?php echo isset($inputVacio["nombre"]) ? $inputVacio["nombre"]:"";?> </span>
 					</div>
 					<div class="datos-input">
-						<p class="campos-relleno">Apellido:</p>			
+						<p class="campos-relleno">Apellido:</p>
 						<input class="input-apellido" type="text" name="apellido" value="<?php if($_POST["apellido"] == $_POST["apellido"]) { echo($_POST["apellido"]); } else  { echo " "; } ?>"><br>
 						<span style="color: red;" class='error'><?php echo isset($inputVacio["apellido"]) ? $inputVacio["apellido"]:"";?> </span>
 					</div>
 					<div>
-						<p class="campos-relleno">Email:</p>			
+						<p class="campos-relleno">Email:</p>
 						<input class="input-email" type="email" name="email" value="<?php if($_POST["email"] == $_POST["email"]) { echo($_POST["email"]); } else  { echo " "; } ?>"><br>							<span style="color: red;" class='error'><?php echo isset($inputVacio["email"]) ? $inputVacio["email"]:"";?> </span>
 					</div>
 					<div class="datos-input">
-						<p class="campos-relleno">Confirmar email:</p>			
+						<p class="campos-relleno">Confirmar email:</p>
 						<input class="input-confirm-email" type="email" name="email-confirm" value=""><br>
 						<span style="color: red;" class='error'><?php echo isset($inputVacio["email-confirm"]) ? $inputVacio["email-confirm"]:"";?> </span>
-					</div>		
+					</div>
 					<div class="datos-input">
 						<p class="campos-relleno">Usuario:</p>
 						<input class="input-usuario" type="text" name="usuario" value="<?php if($_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>"><br>
 						<span style="color: red;" class='error'><?php echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
-					</div>			
+					</div>
 					<div class="datos-input">
-						<p class="campos-relleno">Contraseña:</p>			
+						<p class="campos-relleno">Contraseña:</p>
 						<input class="input-contrasena" type="password" name="contrasena" value=""><br>
 						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
 					</div>
 					<div class="datos-input">
-						<p class="campos-relleno">Confirmar contraseña:</p>			
+						<p class="campos-relleno">Confirmar contraseña:</p>
 						<input class="input-confirm-contrasena" type="password" name="contrasena-confirm" value=""><br>
 						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena-confirm"]) ? $inputVacio["contrasena-confirm"]:"";?> </span>
 					</div>
 					<div class="unico-checkbox">
-						<input type="checkbox" name="terminos-y-condiciones" required=""> He leido y acepto los <a href=""> términos y condiciones legales de MotoMarket </a><br>			
-					</div>									
-					<div class="caja-boton-enviar">	
+						<input type="checkbox" name="terminos-y-condiciones" required=""> He leido y acepto los <a href=""> términos y condiciones legales de MotoMarket </a><br>
+					</div>
+					<div class="caja-boton-enviar">
 						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Registrarse">
 					</div>
 					<div>
@@ -96,10 +95,10 @@ if ($_POST) {
 					<!--<div>
 						<h5 class="unico-h5"><a href="index.html">Volver al inicio</a></h5>
 					</div>!-->
-				
-			</section>	
-		
-	
+
+			</section>
+
+
 	<footer>
 		<div class="social">
 						<a href="http://www.facebook.com" class="facebook" target="">
@@ -136,7 +135,7 @@ if ($_POST) {
 								</g>
 							</svg>
 						</a>
-						<a href="http://www.instagram.com" class="instagram" target=""> 
+						<a href="http://www.instagram.com" class="instagram" target="">
 							<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 									 width="612px" height="612px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
 								<g>

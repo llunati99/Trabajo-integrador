@@ -7,6 +7,8 @@ function validarRegistro($datos){
 	}
 	if ($datos["contrasena"] == "") {
 		$inputVacio["contrasena"] = "Por favor ingrese su contraseña";
+	} elseif (strlen($datos["contrasena"]) < 6) {
+		$inputVacio["contrasena"] = "La contraseña debe ser mayor a 6 caracteres";
 	}
 		if ($datos["contrasena-confirm"] == "") {
 		$inputVacio["contrasena-confirm"] = "Por favor reingrese su contraseña";
