@@ -66,7 +66,6 @@ function chequeoDatosEnBase($datos) {
 	$errorExiste = [];
 	$json = file_get_contents("usuarios.json");
 	$array = json_decode($json, true);
-	var_dump($array["usuario"]);
 
 	if ($datos["usuario"] == $array["usuario"]){
 		$errorExiste["usuario"] = "Ya existe un usuario con ese nombre, por favor elija otro.";
@@ -78,15 +77,20 @@ function chequeoDatosEnBase($datos) {
 }
 
 function subirAvatar($avatar){
-    $nombreViejo = $avatar["name"]; // Nombre original del archivo
-    $extension = pathinfo($nombreViejo, PATHINFO_EXTENSION); // Extensión del archivo subido
+   $nombreViejo = $avatar["name"]; // Nombre original del archivo
+   $extension = pathinfo($nombreViejo, PATHINFO_EXTENSION); // Extensión del archivo subido
     $nombreNuevo = $avatar["tmp_name"]; // Nombre temporal en el servidor
-    $archivoFinal = "\images\perfiles\\"; // .= nos permite concatenar, en este caso es lo mismo que poner $archivoFinal = $archivoFinal . "/img/"
-    $archivoFinal .= uniqid() . "." . $extension; // uniqid genera un ID "único" para la foto
+    $archivoFinal = dirname(__FILE__);
+    $dir = "/images/perfiles/";
+   // ***  $archivoFinal = "\images\perfiles\\"; // .= nos permite concatenar, en este caso es lo mismo que poner $archivoFinal = $archivoFinal . "/img/"
+    $archivoAvatar = uniqid() . "." . $extension;
+    $archivoFinal .= $dir . $archivoAvatar;
+     // uniqid genera un ID "único" para la foto
 
-    $archivoFinalF = realpath(__DIR__ . '/..') . $archivoFinal; // Agarramos el archivo donde estamos parados ahora mismo
-    move_uploaded_file($nombreNuevo, $archivoFinalF); // movemos el archivo a la ubicación final
-    return ".".str_replace("\\","/",$archivoFinal);
+    // *** $archivoFinalF = realpath(__DIR__ . '/..') . $archivoFinal; // Agarramos el archivo donde estamos parados ahora mismo
+   move_uploaded_file($nombreNuevo, $archivoFinal); // movemos el archivo a la ubicación final
+    // *** return ".".str_replace("\\","/",$archivoFinal);
+    return $archivoAvatar;
 }
 
 ?>

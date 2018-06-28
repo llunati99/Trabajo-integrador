@@ -7,6 +7,7 @@ if ($_POST) {
 	$inputVacio = validarRegistro($_POST);
 	$errorExisteDB = chequeoDatosEnBase($_POST);
 	$errorAvatar = validacionAvatar($_FILES["avatar"]);
+
 	if (empty($inputVacio) && empty($errorExisteDB) && empty($errorAvatar)) {
 		$avatar = subirAvatar($_FILES["avatar"]);
 		$nuevoUsuario = crearUsuario($_POST, $avatar);
@@ -51,7 +52,7 @@ if ($_POST) {
 					<!--<div class="texto-que-dice-gratis">
 						<h3 class="h3gratis">Es 100% gratis</h3>
 					</div>!-->
-				<form class="formulario" action="" method="post">
+				<form class="formulario" action="" method="post" enctype="multipart/form-data">
 					<div class="datos-input">
 						<p class="campos-relleno">Nombre:</p>
 						<input class="input-nombre" type="text" name="nombre" value="<?php if($_POST["nombre"] == $_POST["nombre"]) { echo($_POST["nombre"]); } else  { echo " "; } ?>"><br>
@@ -83,7 +84,7 @@ if ($_POST) {
 						<input class="input-usuario" type="text" name="usuario" value="<?php if($_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>"><br>
 						<span style="color: red;" class='error'><?php echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
 						<!-- Agregado Nuevo! -->
-						<span class="error"><?php echo isset($errorExisteDB["usuario"]) ? $errorExiste["usuario"] : ""  ; ?> </span>
+						<span style="color: red;"><?php echo isset($errorExisteDB["usuario"]) ? $errorExiste["usuario"] : ""  ; ?> </span>
 						<!-- Agregado Nuevo! (FIN) -->
 					</div>
 
@@ -103,7 +104,7 @@ if ($_POST) {
 					<div class="datos-input">
 						<p class="campos-relleno">Cargar avatar:</p>
 						<input type="file" name="avatar"><br>
-						<span style="color: red;"><?php echo isset($errorAvatar["avatar"]) ? $errorAvatar["avatar"] : ""; ?> </span>
+						<span id="avatar_error" style="color: red;"><?php echo isset($errorAvatar["avatar"]) ? $errorAvatar["avatar"] : ""; ?> </span>
 					</div>
 					<!-- Agregado Nuevo! (FIN) -->
 
