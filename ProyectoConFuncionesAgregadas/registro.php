@@ -1,6 +1,7 @@
 
 <?php
 include_once("funciones.php");
+include_once("conexionregistrodb.php");
 error_reporting(E_ALL ^ E_NOTICE);
 
 if ($_POST) {
@@ -188,7 +189,7 @@ if ($_POST) {
 						</a>
 						<a href="#" class="up"><img src="images/arrow.svg"></a>
 					</div>
-		<div class="logo-footer">
+					<div class="logo-footer">
 			<a href="#"><img src="images/logo.png"></a>
 		</div>
 	</footer>
@@ -196,5 +197,9 @@ if ($_POST) {
 		<p>	&copy; MotoMarket. Todos los derechos reservados </p>
 	</div>
 	</div>
+
+
+
+
 </body>
 </html>

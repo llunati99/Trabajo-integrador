@@ -1,0 +1,6 @@
+QUE FALTA
+
+
+una vez que el  login corrobore que el usuario es existente en la base de datos moto_market, tabla usuarios,
+el login tiene que redireccionar a la home pero con una bienvenida y la variable de session(cookie) este creada.
+mas adelante hay que ver el recordar usuario y como matar(terminar) la cookie
