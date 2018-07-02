@@ -6,6 +6,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 if ($_POST) {
 	$inputVacio = validarRegistro($_POST);
+	var_dump($inputVacio);exit;
 	$errorExisteDB = chequeoDatosEnBase($_POST);
 	$errorAvatar = validacionAvatar($_FILES["avatar"]);
 

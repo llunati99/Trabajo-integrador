@@ -1,5 +1,17 @@
 <?php
 
+function validarLogin($datos){
+	$errores = [];
+	
+	if ($datos["usuario"] == " ") {
+		$errores["usuario"] = "Por favor ingrese su nombre de usuario";
+	}
+	if ($datos["contrasena"] == " ") {
+		$errores["contrasena"] = "Por favor ingrese su contraseña";
+	}
+	return $errores;
+}
+
 function validarRegistro($datos){
 	$inputVacio = [];
 	if ($datos["usuario"] == "") {
@@ -92,5 +104,7 @@ function subirAvatar($avatar){
     // *** return ".".str_replace("\\","/",$archivoFinal);
     return $archivoAvatar;
 }
+
+
 
 ?>

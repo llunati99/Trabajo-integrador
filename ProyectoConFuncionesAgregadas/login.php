@@ -1,3 +1,16 @@
+<?php 
+	
+include_once("funciones.php");
+
+if ($_POST) {
+	$errores = validarLogin($_POST);
+	var_dump($errores);exit;		
+	}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,23 +48,23 @@
 					<div class="datos-input">
 						<p class="campos-relleno">Nombre de usuario:</p>
 						<input class="input-usuario" type="text" name="usuario" value=''><br>
-						<span style="color: red;" class='error'></span>
+						<span style="color: red;" class='error'><?php echo isset($errores["usuario"]) ? $errores["usuario"]:"";?> </span>
 					</div>
 					<div class="datos-input">
 						<p class="campos-relleno">Contraseña:</p>
 						<input class="input-contrasena" type="password" name="contrasena" value=""><br>
 						<span style="color: red;" class='error'></span>
 					</div>
-				</form>
-					<div class="unico-checkbox">
-						<input type="checkbox" name="terminos-y-condiciones">Recordar mi cuenta
-					</div>
 					<div class="caja-boton-enviar">
 						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Ingresar">
+					</div>
+					<div class="unico-checkbox">
+						<input type="checkbox" name="terminos-y-condiciones">Recordar mi cuenta
 					</div>
 					<div>
 						<p class="unico-checkbox">¿No tienes cuenta? <a href="registro.php">Creá tu cuenta ahora</a></p>
 					</div>
+				</form>	
 					<!--<div>
 						<h5 class="unico-h5"><a href="index.html">Volver al inicio</a></h5>
 					</div>!-->
