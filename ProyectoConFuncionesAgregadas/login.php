@@ -1,32 +1,3 @@
-
-<?php
-include_once("funciones.php");
-include_once("conexionregistrodb.php");
-error_reporting(E_ALL ^ E_NOTICE);
-
-if ($_POST) {
-	$inputVacio = validarRegistro($_POST);
-	$errorExisteDB = chequeoDatosEnBase($_POST);
-	$errorAvatar = validacionAvatar($_FILES["avatar"]);
-
-	if (empty($inputVacio) && empty($errorExisteDB) && empty($errorAvatar)) {
-		$avatar = subirAvatar($_FILES["avatar"]);
-		$nuevoUsuario = crearUsuario($_POST, $avatar);
-		guardarUsuario($nuevoUsuario);
-
-		session_start();
-		$_SESSION["nombre"] = $_POST["nombre"];
-		$_SESSION["apellido"] = $_POST["apellido"];
-		$_SESSION["email"] = $_POST["email"];
-		$_SESSION["usuario"] = $_POST["usuario"];
-		$_SESSION["contrasena"] = $_POST["contrasena"];
-		
-		header('Location: bienvenido.php');
-	}
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,87 +21,40 @@ if ($_POST) {
 
 			</nav>
 			<div class="login-register">
-					<a href="login.php">Iniciar Sesión</a>
+					<a href="registro.php">Register</a>
 				</div>
 		</header>
 			<section>
-
-			<div>
-				<h1 class="title">Registrate en MotoMarket</h1>
-			</div>
+				<div>
+					<h1 class="title">Ingresa a tu cuenta</h1>
+				</div>				
+				<form class="formulario" action="" method="post">
 					<!--<div class="texto-que-dice-gratis">
 						<h3 class="h3gratis">Es 100% gratis</h3>
 					</div>!-->
-				<form class="formulario" action="" method="post" enctype="multipart/form-data">
 					<div class="datos-input">
-						<p class="campos-relleno">Nombre:</p>
-						<input class="input-nombre" type="text" name="nombre" value="<?php if($_POST["nombre"] == $_POST["nombre"]) { echo($_POST["nombre"]); } else  { echo " "; } ?>"><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["nombre"]) ? $inputVacio["nombre"]:"";?> </span>
+						<p class="campos-relleno">Nombre de usuario:</p>
+						<input class="input-usuario" type="text" name="usuario" value=''><br>
+						<span style="color: red;" class='error'></span>
 					</div>
-					<div class="datos-input">
-						<p class="campos-relleno">Apellido:</p>
-						<input class="input-apellido" type="text" name="apellido" value="<?php if($_POST["apellido"] == $_POST["apellido"]) { echo($_POST["apellido"]); } else  { echo " "; } ?>"><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["apellido"]) ? $inputVacio["apellido"]:"";?> </span>
-					</div>
-					<div>
-						<p class="campos-relleno">Email:</p>
-						<input class="input-email" type="email" name="email" value="<?php if($_POST["email"] == $_POST["email"]) { echo($_POST["email"]); } else  { echo " "; } ?>"><br>							<span style="color: red;" class='error'><?php echo isset($inputVacio["email"]) ? $inputVacio["email"]:"";?> </span>
-					</div>
-
-
-					<div class="datos-input">
-						<p class="campos-relleno">Confirmar email:</p>
-						<input class="input-confirm-email" type="email" name="email-confirm" value=""><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["email-confirm"]) ? $inputVacio["email-confirm"]:"";?> </span>
-						<!-- Agregado Nuevo! -->
-						<span class="error"><?php echo isset($errorExisteDB["email"]) ? $errorExiste["email"] : ""   ; ?> </span>
-						<!-- Agregado Nuevo! (FIN) -->
-					</div>
-
-
-					<div class="datos-input">
-						<p class="campos-relleno">Usuario:</p>
-						<input class="input-usuario" type="text" name="usuario" value="<?php if($_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>"><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
-						<!-- Agregado Nuevo! -->
-						<span style="color: red;"><?php echo isset($errorExisteDB["usuario"]) ? $errorExiste["usuario"] : ""  ; ?> </span>
-						<!-- Agregado Nuevo! (FIN) -->
-					</div>
-
-
 					<div class="datos-input">
 						<p class="campos-relleno">Contraseña:</p>
 						<input class="input-contrasena" type="password" name="contrasena" value=""><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
+						<span style="color: red;" class='error'></span>
 					</div>
-					<div class="datos-input">
-						<p class="campos-relleno">Confirmar contraseña:</p>
-						<input class="input-confirm-contrasena" type="password" name="contrasena-confirm" value=""><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena-confirm"]) ? $inputVacio["contrasena-confirm"]:"";?> </span>
-					</div>
-
-					<!-- Agregado Nuevo! -->
-					<div class="datos-input">
-						<p class="campos-relleno">Cargar avatar:</p>
-						<input type="file" name="avatar"><br>
-						<span id="avatar_error" style="color: red;"><?php echo isset($errorAvatar["avatar"]) ? $errorAvatar["avatar"] : ""; ?> </span>
-					</div>
-					<!-- Agregado Nuevo! (FIN) -->
-
+				</form>
 					<div class="unico-checkbox">
-						<input type="checkbox" name="terminos-y-condiciones" required=""> He leido y acepto los <a href=""> términos y condiciones legales de MotoMarket </a><br>
+						<input type="checkbox" name="terminos-y-condiciones">Recordar mi cuenta
 					</div>
 					<div class="caja-boton-enviar">
-						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Registrarse">
+						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Ingresar">
 					</div>
 					<div>
-					</form>
-						<p class="unico-checkbox">¿Ya estas registrado? <a href="login.php">Inicia sesión</a></p>
+						<p class="unico-checkbox">¿No tienes cuenta? <a href="registro.php">Creá tu cuenta ahora</a></p>
 					</div>
 					<!--<div>
-						<h5 class="unico-h5"><a href="index.php">Volver al inicio</a></h5>
+						<h5 class="unico-h5"><a href="index.html">Volver al inicio</a></h5>
 					</div>!-->
-
 			</section>
 
 
@@ -197,17 +121,13 @@ if ($_POST) {
 						</a>
 						<a href="#" class="up"><img src="images/arrow.svg"></a>
 					</div>
-					<div class="logo-footer">
-			<a href="#"><img src="images/logo.png"></a>
+		<div class="logo-footer">
+			<img src="images/logo.png">
 		</div>
 	</footer>
 	<div class="copyright">
-		<p>	&copy; MotoMarket. Todos los derechos reservados </p>
+		<p>	&copy; Motomarket. Todos los derechos reservados </p>
 	</div>
 	</div>
-
-
-
-
 </body>
 </html>
