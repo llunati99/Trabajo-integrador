@@ -1,18 +1,12 @@
-
 <?php
-include_once("funciones.php");
-error_reporting(E_ALL ^ E_NOTICE);
+	include_once ("funciones.php");
 
-if ($_POST) {
-	$inputVacio = validarRegistro($_POST);
-	if (empty($inputVacio)) {
-		$nuevoUsuario = crearUsuario($_POST);
-		guardarUsuario($nuevoUsuario);
+	session_start();
+	if (!isset($_SESSION['nombre']) && !isset($_SESSION['apellido'])) {
+		header('Location: login.php');						// Si la session no trae algo redirige a login.php
 	}
-}
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +15,8 @@ if ($_POST) {
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Neuton:800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
 </head>
 <body>
@@ -29,80 +25,31 @@ if ($_POST) {
 			<nav class="main">
 				<div class="logo">
 					<img src="images/logo.png">
-				</div>
-					<a href="index.html">Home</a>
-					<a href="#">Catalogo</a>
-					<a href="faq.html">Preguntas Frecuentes</a>
 
-			</nav>
-			<div class="login-register">
-					<a href="login.html">Iniciar Sesión</a>
+				</div>
+					<a href="index.php">Home</a>
+					<a href="">Catalogo</a>
+					<a href="faq.php">Preguntas Frecuentes</a>
+
+			</nav><div class="login-register">
+					<a href=""><?php echo "Hola, ".$_SESSION["nombre"]." ".$_SESSION["apellido"]; ?></a>
+
+					<!-- Aca falta mostrar imagen del avatar :::: Verificar la ruta de la imagen -->
+
+					<!-- <img src="<?php // echo $_SESSION["rutaAvatar"] ?>" alt=""> -->
 				</div>
 		</header>
-			<section>
 
-			<div>
-				<h1 class="title">Registrate en MotoMarket</h1>
-			</div>
-					<!--<div class="texto-que-dice-gratis">
-						<h3 class="h3gratis">Es 100% gratis</h3>
-					</div>!-->
-				<form class="formulario" action="" method="post">
-					<div class="datos-input">
-						<p class="campos-relleno">Nombre:</p>
-						<input class="input-nombre" type="text" name="nombre" value="<?php if($_POST["nombre"] == $_POST["nombre"]) { echo($_POST["nombre"]); } else  { echo " "; } ?>"><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["nombre"]) ? $inputVacio["nombre"]:"";?> </span>
-					</div>
-					<div class="datos-input">
-						<p class="campos-relleno">Apellido:</p>
-						<input class="input-apellido" type="text" name="apellido" value="<?php if($_POST["apellido"] == $_POST["apellido"]) { echo($_POST["apellido"]); } else  { echo " "; } ?>"><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["apellido"]) ? $inputVacio["apellido"]:"";?> </span>
-					</div>
-					<div>
-						<p class="campos-relleno">Email:</p>
-						<input class="input-email" type="email" name="email" value="<?php if($_POST["email"] == $_POST["email"]) { echo($_POST["email"]); } else  { echo " "; } ?>"><br>							<span style="color: red;" class='error'><?php echo isset($inputVacio["email"]) ? $inputVacio["email"]:"";?> </span>
-					</div>
-					<div class="datos-input">
-						<p class="campos-relleno">Confirmar email:</p>
-						<input class="input-confirm-email" type="email" name="email-confirm" value=""><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["email-confirm"]) ? $inputVacio["email-confirm"]:"";?> </span>
-					</div>
-					<div class="datos-input">
-						<p class="campos-relleno">Usuario:</p>
-						<input class="input-usuario" type="text" name="usuario" value="<?php if($_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>"><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
-					</div>
-					<div class="datos-input">
-						<p class="campos-relleno">Contraseña:</p>
-						<input class="input-contrasena" type="password" name="contrasena" value=""><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
-					</div>
-					<div class="datos-input">
-						<p class="campos-relleno">Confirmar contraseña:</p>
-						<input class="input-confirm-contrasena" type="password" name="contrasena-confirm" value=""><br>
-						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena-confirm"]) ? $inputVacio["contrasena-confirm"]:"";?> </span>
-					</div>
-					<div class="unico-checkbox">
-						<input type="checkbox" name="terminos-y-condiciones" required=""> He leido y acepto los <a href=""> términos y condiciones legales de MotoMarket </a><br>
-					</div>
-					<div class="caja-boton-enviar">
-						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Registrarse">
-					</div>
-					<div>
-					</form>
-						<p class="unico-checkbox">¿Ya estas registrado? <a href="login.html">Inicia sesión</a></p>
-					</div>
-					<!--<div>
-						<h5 class="unico-h5"><a href="index.html">Volver al inicio</a></h5>
-					</div>!-->
+		<!-- Banner -->
+		<div class="banner-sm">
+			<img class="banner-img" src="images/carretera.jpg" alt="carretera">
+			<div class="titulo-banner">Bienvenido</div>
+		</div>
 
-			</section>
-
-
-
-
-
-
+		<div class="banner-lg">
+			<img class="banner-img" src="images/carretera-lg.jpg" alt="carretera">
+			<div class="titulo-banner">Bienvenido</div>
+		</div>
 
 	<footer>
 		<div class="social">
@@ -168,49 +115,12 @@ if ($_POST) {
 						<a href="#" class="up"><img src="images/arrow.svg"></a>
 					</div>
 		<div class="logo-footer">
-			<a href="#"><img src="images/logo.png"></a>
+			<img src="images/logo.png">
 		</div>
 	</footer>
 	<div class="copyright">
 		<p>	&copy; MotoMarket. Todos los derechos reservados </p>
 	</div>
 	</div>
-
-<!-- php para que el registro vaya a base de datos
-TERMINADOOOOOOO LOCO ATR  !-->
-<?php
-
-$user = "root";
-$contra = "";
-try
-{$mdb = new PDO('mysql:host=localhost;dbname=moto_market', $user, $contra);
-
-$stmt = $mdb->prepare("INSERT INTO usuarios (usuario, password, email, nombre, apellido) VALUES (:usuario, :password, :email, :nombre, :apellido)");
-
-$usuariodb = $_POST["usuario"];
-$contra = $_POST["contrasena"];
-$mail = $_POST["email"];
-$nom = $_POST["nombre"];
-$ape = $_POST["apellido"];
-
-$stmt->bindParam(':usuario',$usuariodb,PDO::PARAM_STR);
-$stmt->bindParam(':password',$contra,PDO::PARAM_STR);
-$stmt->bindParam(':email',$mail,PDO::PARAM_STR);
-$stmt->bindParam(':nombre',$nom,PDO::PARAM_STR);
-$stmt->bindParam(':apellido',$ape,PDO::PARAM_STR);
-$stmt->execute();
-print_r($stmt->errorInfo());
-exit;
-}
-
-
-catch(PDOException $e){
-echo $e->getMessage();
-};
- ?>
-
-
-
-
 </body>
 </html>

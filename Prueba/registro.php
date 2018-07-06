@@ -1,3 +1,31 @@
+
+<?php
+include_once("funciones.php");
+include_once("conexionregistrodb.php");
+require_once 'clases/usuarios.php';
+require_once 'clases/db.php';
+require_once 'clases/mysql.php';
+// require_once 'autoload.php';
+
+error_reporting(E_ALL ^ E_NOTICE);
+if ($_POST) {
+	$conexion = new Mysql();
+	$usuarioOne = new Usuario($_POST["usuario"], $_POST["contrasena"], $_POST["email"], $_POST["nombre"], $_POST["apellido"]);
+	$data = $conexion->validarExisteUsuarioEmail($usuarioOne);
+	if (!$data) {
+		$ruta = subirAvatar($_FILES["avatar"]);
+		$usuarioOne->setRutaAvatar($ruta);
+		$conexion->guardarUsuario($usuarioOne);
+		header('Location: login.php');
+	} else {
+		
+		// Mostrar Mensaje de que el usuario o email ya existe...
+		var_dump("TODO mostrat mensaje de emial/usuario existente!");
+	}
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,61 +37,102 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
 </head>
 <body>
-	<div class="container">		
-		<header class="header-container">			
+	<div class="container">
+		<header class="header-container">
 			<nav class="main">
 				<div class="logo">
 					<img src="images/logo.png">
 				</div>
-					<a href="index.html">Home</a>
+					<a href="index.php">Home</a>
 					<a href="#">Catalogo</a>
-					<a href="#">Preguntas Frecuentes</a>
-					
-			</nav><div class="login-register">
-					<a href="login.html">Iniciar Sesión</a>  <a href="registro.html">Registrarse</a>
+					<a href="faq.php">Preguntas Frecuentes</a>
+
+			</nav>
+			<div class="login-register">
+					<a href="login.php">Iniciar Sesión</a>
 				</div>
 		</header>
-		<section>
-			<h1 class="title">Preguntas Frecuentes:</h1>
-			<article>
-				<h3>¿Cómo puedo comprar una moto?</h3>
-				Puede realizar la operacion a través de nuestro sitio web www.motomarket.com con tarjeta de credito o  via transferencia bancaria. Si desea pagar en efectivo puede acercarse a cualquiera de nuestras sucursales (www.motomarket.com/sucursales)
-			</article>
-			<article>
-				<h3>¿Puedo personalizar mi moto?</h3>
-				Por supuesto. A través de la página de Moto Market podrá elegir la marca y modelo de la moto que usted desee, personalizar el color y agregar accesorios si así lo quisiera.
-				Contamos con una amplia gamma de adicionales para darle personalidad a su vehículo, cualquiera sea su gama. Desde pintura personalizada hasta accesorios distintivos.
-				No dude en consultar con nuestro personal especializado a traves del chat de la página.
-			</article>
-			<article>
-				<h3>¿Cómo retiro mi moto?</h3>
-				Una vez aprobada la transaccion un representante de Moto Market se comunicará con usted para coordinar la entrega. Si abona con tarjeta de credito, espere la confirmacion dentro de las 24 horas hábiles siguientes a la fecha de compra. Si realiza una transferencia, una vez confirmada nos comunicaremos con usted. El plazo estandar de acreditación de una transferencia bancaria es de 48 a 72 horas hábiles dependiendo de la entidad bancaria.
-			</article>
-			<article>
-				<h3>¿Hacen envíos a todo el país?</h3>
-				En Moto Market estamos comprometidos a que todos los que así lo deseen en Argentina puedan tener su moto. Contamos con un servicio de entrega a domicilio de alcance nacional. Los costos varían de acuerdo a la región:
-						<ul>
-							<li>NEA (Chaco, Corrientes, Misiones, Formosa): $1500</li>
-							<li>NOA (Jujuy, Salta, Tucumán, Catamarca, La Rioja y Santiago del Estero): $1000</li>
-							<li>Centro (San Juan, San Luis, Mendoza, Santa Fe, Entre Rios y La Pampa): $1200</li>
-							<li>AMBA (CABA y Buenos Aires): $1000</li>
-							<li>Patagonia 1 (Neuquen, Río Negro y Chubut): $1500</li>
-							<li>Patagonia 2: (Santa Cruz y Tierra del Fuego): $2000</li>
-						</ul>
-			</article>
-			<article>
-				<h3>¿Las compras tienen garantía?</h3>
-				Todas las compras realizadas a través de nuestra web o en las sucursales tienen -además de la garantía del fabricante- un período de garantía de Moto Market de un año que cubre daños durante el traslado (en caso de envíos) y garantía por defectos de fábrica (solo aplicable en los casos en que no esté disponible la garantía del fabricante).
-			</article>
+			<section>
 
-			<article>
-				<h3>¿Cómo es su política de cambios y devoluciones?</h3>
-				Una vez que la moto salió del depósito no se aceptan cambios ni devoluciones tanto del valor del vehículo como del envío.
-				El retraso en la entrega puede ser susceptible de reclamo, dependiendo de la causa. Si la demora es por cuestiones climáticas extremas, o ajenas a la empresa (protestas, cortes de ruta, etc.) Moto Market no considera que la demora sea su responsabilidad.
-			</article>
-		</section>	
-		
-	
+			<div>
+				<h1 class="title">Registrate en MotoMarket</h1>
+			</div>
+					<!--<div class="texto-que-dice-gratis">
+						<h3 class="h3gratis">Es 100% gratis</h3>
+					</div>!-->
+				<form class="formulario" action="" method="post" enctype="multipart/form-data">
+					<div class="datos-input">
+						<p class="campos-relleno">Nombre:</p>
+						<input class="input-nombre" type="text" name="nombre" value="<?php if($_POST["nombre"] == $_POST["nombre"]) { echo($_POST["nombre"]); } else  { echo " "; } ?>"><br>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["nombre"]) ? $inputVacio["nombre"]:"";?> </span>
+					</div>
+					<div class="datos-input">
+						<p class="campos-relleno">Apellido:</p>
+						<input class="input-apellido" type="text" name="apellido" value="<?php if($_POST["apellido"] == $_POST["apellido"]) { echo($_POST["apellido"]); } else  { echo " "; } ?>"><br>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["apellido"]) ? $inputVacio["apellido"]:"";?> </span>
+					</div>
+					<div>
+						<p class="campos-relleno">Email:</p>
+						<input class="input-email" type="email" name="email" value="<?php if($_POST["email"] == $_POST["email"]) { echo($_POST["email"]); } else  { echo " "; } ?>"><br>							<span style="color: red;" class='error'><?php echo isset($inputVacio["email"]) ? $inputVacio["email"]:"";?> </span>
+					</div>
+
+
+					<div class="datos-input">
+						<p class="campos-relleno">Confirmar email:</p>
+						<input class="input-confirm-email" type="email" name="email-confirm" value=""><br>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["email-confirm"]) ? $inputVacio["email-confirm"]:"";?> </span>
+						<!-- Agregado Nuevo! -->
+						<span class="error"><?php echo isset($errorExisteDB["email"]) ? $errorExiste["email"] : ""   ; ?> </span>
+						<!-- Agregado Nuevo! (FIN) -->
+					</div>
+
+
+					<div class="datos-input">
+						<p class="campos-relleno">Usuario:</p>
+						<input class="input-usuario" type="text" name="usuario" value="<?php if($_POST["usuario"] == $_POST["usuario"]) { echo($_POST["usuario"]); } else  { echo " "; } ?>"><br>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["usuario"]) ? $inputVacio["usuario"]:"";?> </span>
+						<!-- Agregado Nuevo! -->
+						<span style="color: red;"><?php echo isset($errorExisteDB["usuario"]) ? $errorExiste["usuario"] : ""  ; ?> </span>
+						<!-- Agregado Nuevo! (FIN) -->
+					</div>
+
+
+					<div class="datos-input">
+						<p class="campos-relleno">Contraseña:</p>
+						<input class="input-contrasena" type="password" name="contrasena" value=""><br>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena"]) ? $inputVacio["contrasena"]:"";?> </span>
+					</div>
+					<div class="datos-input">
+						<p class="campos-relleno">Confirmar contraseña:</p>
+						<input class="input-confirm-contrasena" type="password" name="contrasena-confirm" value=""><br>
+						<span style="color: red;" class='error'><?php echo isset($inputVacio["contrasena-confirm"]) ? $inputVacio["contrasena-confirm"]:"";?> </span>
+					</div>
+
+					<!-- Agregado Nuevo! -->
+					<div class="datos-input">
+						<p class="campos-relleno">Cargar avatar:</p>
+						<input type="file" name="avatar"><br>
+						<span id="avatar_error" style="color: red;"><?php echo isset($errorAvatar["avatar"]) ? $errorAvatar["avatar"] : ""; ?> </span>
+					</div>
+					<!-- Agregado Nuevo! (FIN) -->
+
+					<div class="unico-checkbox">
+						<input type="checkbox" name="terminos-y-condiciones" required=""> He leido y acepto los <a href=""> términos y condiciones legales de MotoMarket </a><br>
+					</div>
+					<div class="caja-boton-enviar">
+						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Registrarse">
+					</div>
+					<div>
+					</form>
+						<p class="unico-checkbox">¿Ya estas registrado? <a href="login.php">Inicia sesión</a></p>
+					</div>
+					<!--<div>
+						<h5 class="unico-h5"><a href="index.php">Volver al inicio</a></h5>
+					</div>!-->
+
+			</section>
+
+
 	<footer>
 		<div class="social">
 						<a href="http://www.facebook.com" class="facebook" target="">
@@ -127,13 +196,17 @@
 						</a>
 						<a href="#" class="up"><img src="images/arrow.svg"></a>
 					</div>
-		<div class="logo-footer">
-			<img src="images/logo.png">
+					<div class="logo-footer">
+			<a href="#"><img src="images/logo.png"></a>
 		</div>
 	</footer>
 	<div class="copyright">
 		<p>	&copy; MotoMarket. Todos los derechos reservados </p>
 	</div>
 	</div>
+
+
+
+
 </body>
 </html>

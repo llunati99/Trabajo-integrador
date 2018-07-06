@@ -1,3 +1,8 @@
+<?php
+
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,14 +21,14 @@
 			<nav class="main">
 				<div class="logo">
 					<img src="images/logo.png">
-					
+
 				</div>
 					<a href="#">Home</a>
 					<a href="#">Catalogo</a>
-					<a href="faq.html">Preguntas Frecuentes</a>
+					<a href="faq.php">Preguntas Frecuentes</a>
 
 			</nav><div class="login-register">
-					<a href="login.html">Iniciar Sesión</a>  <a href="registro.html">Registrarse</a>
+					<a href="login.php">Iniciar Sesión</a>  <a href="registro.php">Registrarse</a>
 				</div>
 		</header>
 

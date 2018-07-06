@@ -1,7 +1,48 @@
-
 <?php
 
+include_once("funciones.php");
+require_once 'clases/db.php';
+require_once 'clases/mysql.php';
+
+session_start();
+
+// Codigo Nuevo! - Una vez que tengamos el Logout, descomentar.
+
+// if (isset($_SESSION['nombre']) && isset($_SESSION['apellido'])) {
+// 	header('Location: bienvenido.php');						// Si la session trae algo redirige a bienvenido.php
+// }
+
+// Codigo Nuevo! -- FIN
+
+if ($_POST) {
+	$conexion = new Mysql();
+
+	$errores = validarLogin($_POST);
+	$usuario = $_POST["usuario"];
+	$existe = $conexion->verificaUsuarioLogin($usuario);
+	if($existe){
+		$password = $existe[0];
+		$validaPassword = password_verify($_POST["contrasena"], $password);
+		if ($validaPassword) {
+			$nombre = $existe[1];
+			$apellido = $existe[2];
+			$rutaAvatar = $existe[3];
+			$_SESSION["nombre"] = $nombre;
+			$_SESSION["apellido"] = $apellido;
+			$_SESSION["rutaAvatar"] = $rutaAvatar;
+			header("Location: bienvenido.php");
+		} else {
+			// Aca falta mensaje de error "Usuario o contrasena incorrectos".
+		}
+	} else {
+		// Aca falta mensaje de error "Usuario o contrasena incorrectos".
+	}
+}
+
+
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,41 +54,55 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
 </head>
 <body>
-	<div class="container">		
-		<header class="header-container">			
+	<div class="container">
+		<header class="header-container">
 			<nav class="main">
 				<div class="logo">
 					<img src="images/logo.png">
 				</div>
-					<a href="index.html">Home</a>
+					<a href="index.php">Home</a>
 					<a href="#">Catalogo</a>
-					<a href="#">Preguntas Frecuentes</a>
-					
-			</nav>
+					<a href="faq.php">Preguntas Frecuentes</a>
 
+			</nav>
 			<div class="login-register">
-					<a href="registro.php">Registrarse</a>
+					<a href="registro.php">Register</a>
 				</div>
 		</header>
-		<section id="login">
-			<div class="logo-login"><img src="images/logo.png"></div>
-			<form class="login">
-				<div class="usuario-login">
-					<p class="usuario">Usuario:</p>
-					<input class="input-login" type="text" name="usuario">
+			<section>
+				<div>
+					<h1 class="title">Ingresa a tu cuenta</h1>
 				</div>
-				<div class="pass-login">
-					<p class="contrasena">Contraseña:</p>
-					<input class="input-login" type="password" name="contrasena">
-				</div>
-				<p><input type="checkbox" name="recordarme">Recordarme</p>
-				<div >
-					<input class="enviar-login" type="submit" name="sesion" value="Iniciar Sesión">
-				</div>
-			</form>
-		</section>	
-		
-	
+				<form class="formulario" action="" method="post">
+					<!--<div class="texto-que-dice-gratis">
+						<h3 class="h3gratis">Es 100% gratis</h3>
+					</div>!-->
+					<div class="datos-input">
+						<p class="campos-relleno">Nombre de usuario:</p>
+						<input class="input-usuario" type="text" name="usuario" value=''><br>
+						<span style="color: red;" class='error'><?php echo isset($errores["usuario"]) ? $errores["usuario"]:"";?> </span>
+					</div>
+					<div class="datos-input">
+						<p class="campos-relleno">Contraseña:</p>
+						<input class="input-contrasena" type="password" name="contrasena" value=""><br>
+						<span style="color: red;" class='error'></span>
+					</div>
+					<div class="caja-boton-enviar">
+						<input class="boton-enviar" type="submit" name="enviar-formulario" value="Ingresar">
+					</div>
+					<div class="unico-checkbox">
+						<input type="checkbox" name="terminos-y-condiciones">Recordar mi cuenta
+					</div>
+					<div>
+						<p class="unico-checkbox">¿No tienes cuenta? <a href="registro.php">Creá tu cuenta ahora</a></p>
+					</div>
+				</form>
+					<!--<div>
+						<h5 class="unico-h5"><a href="index.html">Volver al inicio</a></h5>
+					</div>!-->
+			</section>
+
+
 	<footer>
 		<div class="social">
 						<a href="http://www.facebook.com" class="facebook" target="">
@@ -116,7 +171,7 @@
 		</div>
 	</footer>
 	<div class="copyright">
-		<p>	&copy; MotoMarket. Todos los derechos reservados </p>
+		<p>	&copy; Motomarket. Todos los derechos reservados </p>
 	</div>
 	</div>
 </body>
