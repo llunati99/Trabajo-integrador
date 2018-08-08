@@ -29,7 +29,26 @@ header{
 	flex-direction: row; /*lo setea como fila*/
 	flex-wrap: wrap; /*para que si no entra un elemento se ponga debajo*/
 }
-
+p.displacement {
+	margin-bottom: 0px;
+}
+h4.price {
+	margin-top: 0px;
+}
+h4.bikename {
+	margin-bottom: 0px;
+	margin-top: 4px;
+}
+.filternav {
+	margin-top: 50px;
+	margin-right: 110px;
+}
+.filter {
+	margin-bottom: 20px;
+}
+.logo {
+	width: 50%;
+}
 div .login-register {
 	width: 100%;
 	text-align: right;
